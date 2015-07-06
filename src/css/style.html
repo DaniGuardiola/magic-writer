@@ -1,0 +1,36 @@
+<style is="custom-style">
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    @apply(--paper-font-common-base);
+    background-color: var(--paper-grey-200);
+}
+
+#writer-target {
+    padding: 8px;
+    width: 500px;
+    margin-top: 64px;
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border-radius: 2px;
+    cursor: text;
+    @apply(--shadow-elevation-3dp);
+}
+
+#writer-target .title {
+    @apply(--paper-font-display1);
+}
+
+#writer-target .subtitle {
+    @apply(--paper-font-subhead);
+    color: var(--paper-grey-500);
+}
+
+#writer-target .text {
+    @apply(--paper-font-body1);
+}
+</style>
