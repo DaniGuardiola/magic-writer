@@ -9,19 +9,26 @@ API.writer = (function() {
 
     // Title snippets
     var title = [
-        "Los bolivarianos comienzan la quema masiva de iglesias"
+        "Los bolivarianos comienzan la quema masiva de iglesias",
+        "Grecia vota NO a devolver a cada español 535 euros",
+        "El radicalismo chavista se instaura en las urnas",
+        "España dice si a la destrucción de la patria"
     ];
 
     // Subtitle snippets
     var subtitle = [
-        "El populismo traerá consigo la destrucción del país y la sistemática desaparición de la libertad"
+        "El populismo traerá consigo la destrucción del país y la sistemática desaparición de la libertad",
+        "Errejón cobró por trabajar, los datos apuntan a que tiene hasta un teléfono móvil",
+        "Alfonso Merlos afirma que está <<hasta la polla>> de Podemos"
     ];
 
     // Text snippets
     var text = [
         "\"Pablo Iglesias se ha comido otro bebé\" afimaba hoy nuestro experto en política exterior.",
-        "La vida está muy mala. Si total mejor lo malo conocido que lo bueno por conocer.",
-        "Estos hecho espeluznantes acontecían mientras Tania Sánchez cobraba por trabajar. Estos comunistas..."
+        "Mejor lo malo conocido que lo malo por conocer.",
+        "Estos hechos espeluznantes acontecían mientras Tania Sánchez cobraba por trabajar.",
+        "El comunismo mató a millones y millones de personas.",
+        "Podemos quiere también prohibir la semana santa, los polos de fresa y los palos de selfie."
     ];
 
     // Last text index, used to avoid repetition

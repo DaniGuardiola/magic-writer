@@ -43,8 +43,8 @@ API.document = (function() {
         if (finish) {
             status.lastStringIndex = 0;
             if (status.currentBreak || status.currentType === "title" || status.currentType === "subtitle") {
-                el.parentNode.appendChild(document.createElement("br"));
-                el.parentNode.appendChild(document.createElement("br"));
+                el.parentNode.insertBefore(document.createElement("br"), API.dom.getBlinking());
+                el.parentNode.insertBefore(document.createElement("br"), API.dom.getBlinking());
             }
             status.currentText = status.currentType = status.currentBreak = false;
         }
@@ -74,7 +74,7 @@ API.document = (function() {
         }
         status.lastElementId++;
         el.id = elementIdentifier + status.lastElementId;
-        target.appendChild(el);
+        target.insertBefore(el, API.dom.getBlinking());
     }
 
     // Returns the current element

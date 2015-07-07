@@ -3,7 +3,7 @@ API.dom = (function() {
 
     // Initializes DOM functionality
     function init() {
-        window.addEventListener("keydown", API.document.keyListener);
+        window.addEventListener("keypress", API.document.keyListener);
     }
 
     /* GETTERS */
@@ -12,10 +12,16 @@ API.dom = (function() {
         return document.getElementById("writer-target");
     }
 
+    // Get blinking image
+    function getBlinking() {
+        return document.getElementById("blinking");
+    }
+
     // Publish API
     return {
         init: init,
         // Getters
-        getWriterTarget: getWriterTarget
+        getWriterTarget: getWriterTarget,
+        getBlinking: getBlinking
     };
 })();

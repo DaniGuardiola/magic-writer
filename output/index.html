@@ -7430,17 +7430,57 @@ body {
     background-color: var(--paper-grey-200);
 }
 
-#writer-target {
-    padding: 8px;
-    width: 500px;
+* {
+    box-sizing: border-box;
+}
+
+#blinking {
+    height: 16px;
+    width: 11px;
+    margin-left: -3px;
+    margin-bottom: -2px;
+}
+
+#newspaper {
     margin-top: 64px;
-    height: 800px;
+    margin-bottom: 64px;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
     border-radius: 2px;
-    cursor: text;
     @apply(--shadow-elevation-3dp);
+}
+
+#newspaper .header,
+#newspaper .bottom {
+    width: 100%;
+}
+
+#newspaper .header>img,
+#newspaper .bottom>img {
+    width: 100%;
+}
+
+#newspaper .content {
+    display: flex;
+}
+
+#image {
+    padding: 36px;
+}
+
+#image img {
+    width: 100%;
+}
+
+#writer-target {
+    padding: 17px;
+    width: 100%;
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: text;
 }
 
 #writer-target .title {
@@ -7456,11 +7496,26 @@ body {
     @apply(--paper-font-body1);
 }
 </style>
-<script>!function(){"use strict";function a(){API.dom.init()}window.API={},window.addEventListener("load",a)}(),API.document=function(){"use strict";function a(){b()}function b(){g.currentText||(d(),e()),c()}function c(){var a=f(),b=3,c=g.lastStringIndex,d=g.lastStringIndex+b>=g.currentText.length,e=d?g.currentText.length:g.lastStringIndex+b,h=g.currentText.substring(c,e);console.log("START: "+c+", END: "+e+", PIECE: "+h),a.textContent=a.textContent+h,g.lastStringIndex=e,d&&"text"===g.currentType&&(a.textContent=a.textContent+" "),d&&(g.lastStringIndex=0,(g.currentBreak||"title"===g.currentType||"subtitle"===g.currentType)&&(a.parentNode.appendChild(document.createElement("br")),a.parentNode.appendChild(document.createElement("br"))),g.currentText=g.currentType=g.currentBreak=!1)}function d(){var a=API.writer.getNext();g.currentText=a.content,g.currentType=a.type,g.currentBreak=a.linebreak}function e(){var a,b=API.dom.getWriterTarget();"title"===g.currentType?(a=document.createElement("span"),a.classList.add("title")):"subtitle"===g.currentType?(a=document.createElement("span"),a.classList.add("subtitle")):"text"===g.currentType&&(a=document.createElement("span"),a.classList.add("text")),g.lastElementId++,a.id=h+g.lastElementId,b.appendChild(a)}function f(){return console.info(h+g.lastElementId),document.getElementById(h+g.lastElementId)}var g={currentText:!1,currentType:!1,currentBreak:!1,lastElementId:0,lastStringIndex:!1},h="magic-writer-element-";return{keyListener:a}}(),API.dom=function(){"use strict";function a(){window.addEventListener("keydown",API.document.keyListener)}function b(){return document.getElementById("writer-target")}return{init:a,getWriterTarget:b}}(),API.writer=function(){"use strict";function a(a){return Math.floor(Math.random()*a)}function b(){return j[a(j.length)]}function c(){return k[a(k.length)]}function d(){var b=a(l.length);return b===h?d():(h=b,l[b])}function e(){i.nextLineBreak=a(5)+4}function f(){if(!i.last)return i.last="title",{type:"title",content:b()};if("title"===i.last)return i.last="subtitle",{type:"subtitle",content:c()};if("subtitle"===i.last||"text"===i.last){i.last="text";var a=i.sinceLastLineBreak>=i.nextLineBreak;return a?i.sinceLastLineBreak=0:i.sinceLastLineBreak++,{type:"text",content:d(),linebreak:a}}}function g(){e()}var h,i={last:!1,sinceLastLineBreak:0,nextLineBreak:!1},j=["Los bolivarianos comienzan la quema masiva de iglesias"],k=["El populismo traerá consigo la destrucción del país y la sistemática desaparición de la libertad"],l=['"Pablo Iglesias se ha comido otro bebé" afimaba hoy nuestro experto en política exterior.',"La vida está muy mala. Si total mejor lo malo conocido que lo bueno por conocer.","Estos hecho espeluznantes acontecían mientras Tania Sánchez cobraba por trabajar. Estos comunistas..."];return g(),{getNext:f}}();</script>
+<script>!function(){"use strict";function a(){API.dom.init()}window.API={},window.addEventListener("load",a)}(),API.document=function(){"use strict";function a(){b()}function b(){g.currentText||(d(),e()),c()}function c(){var a=f(),b=3,c=g.lastStringIndex,d=g.lastStringIndex+b>=g.currentText.length,e=d?g.currentText.length:g.lastStringIndex+b,h=g.currentText.substring(c,e);console.log("START: "+c+", END: "+e+", PIECE: "+h),a.textContent=a.textContent+h,g.lastStringIndex=e,d&&"text"===g.currentType&&(a.textContent=a.textContent+" "),d&&(g.lastStringIndex=0,(g.currentBreak||"title"===g.currentType||"subtitle"===g.currentType)&&(a.parentNode.insertBefore(document.createElement("br"),API.dom.getBlinking()),a.parentNode.insertBefore(document.createElement("br"),API.dom.getBlinking())),g.currentText=g.currentType=g.currentBreak=!1)}function d(){var a=API.writer.getNext();g.currentText=a.content,g.currentType=a.type,g.currentBreak=a.linebreak}function e(){var a,b=API.dom.getWriterTarget();"title"===g.currentType?(a=document.createElement("span"),a.classList.add("title")):"subtitle"===g.currentType?(a=document.createElement("span"),a.classList.add("subtitle")):"text"===g.currentType&&(a=document.createElement("span"),a.classList.add("text")),g.lastElementId++,a.id=h+g.lastElementId,b.insertBefore(a,API.dom.getBlinking())}function f(){return console.info(h+g.lastElementId),document.getElementById(h+g.lastElementId)}var g={currentText:!1,currentType:!1,currentBreak:!1,lastElementId:0,lastStringIndex:!1},h="magic-writer-element-";return{keyListener:a}}(),API.dom=function(){"use strict";function a(){window.addEventListener("keypress",API.document.keyListener)}function b(){return document.getElementById("writer-target")}function c(){return document.getElementById("blinking")}return{init:a,getWriterTarget:b,getBlinking:c}}(),API.writer=function(){"use strict";function a(a){return Math.floor(Math.random()*a)}function b(){return j[a(j.length)]}function c(){return k[a(k.length)]}function d(){var b=a(l.length);return b===h?d():(h=b,l[b])}function e(){i.nextLineBreak=a(5)+4}function f(){if(!i.last)return i.last="title",{type:"title",content:b()};if("title"===i.last)return i.last="subtitle",{type:"subtitle",content:c()};if("subtitle"===i.last||"text"===i.last){i.last="text";var a=i.sinceLastLineBreak>=i.nextLineBreak;return a?i.sinceLastLineBreak=0:i.sinceLastLineBreak++,{type:"text",content:d(),linebreak:a}}}function g(){e()}var h,i={last:!1,sinceLastLineBreak:0,nextLineBreak:!1},j=["Los bolivarianos comienzan la quema masiva de iglesias","Grecia vota NO a devolver a cada español 535 euros","El radicalismo chavista se instaura en las urnas","España dice si a la destrucción de la patria"],k=["El populismo traerá consigo la destrucción del país y la sistemática desaparición de la libertad","Errejón cobró por trabajar, los datos apuntan a que tiene hasta un teléfono móvil","Alfonso Merlos afirma que está <<hasta la polla>> de Podemos"],l=['"Pablo Iglesias se ha comido otro bebé" afimaba hoy nuestro experto en política exterior.',"Mejor lo malo conocido que lo malo por conocer.","Estos hechos espeluznantes acontecían mientras Tania Sánchez cobraba por trabajar.","El comunismo mató a millones y millones de personas.","Podemos quiere también prohibir la semana santa, los polos de fresa y los palos de selfie."];return g(),{getNext:f}}();</script>
 </head>
 
 <body unresolved="">
-    <div id="writer-target"></div>
+    <div id="newspaper">
+        <div class="header">
+            <img src="resources/larazon/header.jpg">
+        </div>
+        <div class="content">
+            <div id="writer-target">
+                <img id="blinking" src="resources/img/blinking.gif">
+            </div>
+            <div id="image">
+                <img src="resources/images/1.jpg">
+            </div>
+        </div>
+        <div class="bottom">
+            <img src="resources/larazon/bottom.jpg">
+        </div>
+    </div>
 
 
 
