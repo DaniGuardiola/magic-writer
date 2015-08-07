@@ -28,7 +28,10 @@ API.writer = (function() {
         "Mejor lo malo conocido que lo malo por conocer.",
         "Estos hechos espeluznantes acontecían mientras Tania Sánchez cobraba por trabajar.",
         "El comunismo mató a millones y millones de personas.",
-        "Podemos quiere también prohibir la semana santa, los polos de fresa y los palos de selfie."
+        "Podemos quiere también prohibir la semana santa, los polos de fresa y los palos de selfie.",
+        "Wyoming gana dinero trabajando y lo gasta en lo que quiere, a pesar de ser comunista.",
+        "Venezuela, ETA, Irán, Corea del Norte, Cuba y Grecia planean la dominación mundial para finales de 2018. El grupo sería liderado por Pablo Iglesias.",
+        "Un concejal de la candidatura de unidad popular dimite tras conocerse que tiene sentido del humor y nosotros no toleramos eso. Je suis charlie."
     ];
 
     // Last text index, used to avoid repetition
